@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Role required for major incident managers</description>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_snc_scripting_fu.major_inc_mngr</name>
+        <requires_subscription>-1</requires_subscription>
+        <scoped_admin>false</scoped_admin>
+        <suffix>major_inc_mngr</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-22 23:27:24</sys_created_on>
+        <sys_id>831194919f6002107f4432d50124abac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_scripting_fu.major_inc_mngr</sys_name>
+        <sys_package display_value="Scripting Fundamental Course" source="x_snc_scripting_fu">d21508159f2002107f4432d50124aba7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Scripting Fundamental Course">d21508159f2002107f4432d50124aba7</sys_scope>
+        <sys_update_name>sys_user_role_831194919f6002107f4432d50124abac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-22 23:27:24</sys_updated_on>
+    </sys_user_role>
+</record_update>

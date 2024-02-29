@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_scripting_fu.logPropertyValues</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Lab 7.1 Server-side logging</description>
+        <name>logPropertyValues</name>
+        <script><![CDATA[function logPropertyValues(msg){
+	this.debug = true;
+	this.debugPrefix = 'KL';
+	
+	if (this.debug){
+		gs.addInfoMessage(this.debugPrefix +" "+msg);
+	}
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-27 18:08:39</sys_created_on>
+        <sys_id>a5a674b69fa002107f4432d50124ab28</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>logPropertyValues</sys_name>
+        <sys_package display_value="Scripting Fundamental Course" source="x_snc_scripting_fu">d21508159f2002107f4432d50124aba7</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Scripting Fundamental Course">d21508159f2002107f4432d50124aba7</sys_scope>
+        <sys_update_name>sys_script_include_a5a674b69fa002107f4432d50124ab28</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-27 18:08:39</sys_updated_on>
+    </sys_script_include>
+</record_update>

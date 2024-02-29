@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_scripting_fu.AssignmentGroupUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Lab 7.4 extends the AbstractAjaxProcessor class and returns the number of members in a group.</description>
+        <name>AssignmentGroupUtils</name>
+        <script><![CDATA[var AssignmentGroupUtils = Class.create();
+AssignmentGroupUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	countGroupMembers: function(){
+		var grpName = "";
+		var msg = "The group has no members in this Assignment Group.";
+		var groupId = this.getParameter('sysparm_group_id');
+		
+		var grpMemberGr = new GlideRecord('sys_user_grmember');
+		grpMemberGr.addQuery('group.sys_id', groupId);
+		grpMemberGr.query();
+		
+		if (grpMemberGr.next()){
+			grpName += grpMemberGr.getDisplayValue('group');
+		}
+		
+		if (grpName != ""){
+			msg = "There are "+ grpMemberGr.getRowCount()+" members in the "+ grpName+" group";
+		}
+		
+		return msg;
+		
+	},
+	
+	
+	assignAnalyst: function(){
+		var groupId = this.getParameter('sysparm_group_id');
+		var membsInfo = [];
+		
+		var grpMembsGR = new GlideRecord('sys_user_grmember');
+		grpMembsGR.addQuery('group.sys_id', groupId);
+		grpMembsGR.query();
+		
+		while(grpMembsGR.next()){
+			var membInfo = {};
+			membInfo.sys_id = grpMembsGR.user.sys_id.toString();
+			membInfo.displayValue = grpMembsGR.user.getDisplayValue();
+			membsInfo.push(membInfo);
+			
+		}
+		
+		return JSON.stringify(membsInfo);
+	},
+    type: 'AssignmentGroupUtils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-28 16:44:22</sys_created_on>
+        <sys_id>81b9290f9f2002107f4432d50124abec</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>AssignmentGroupUtils</sys_name>
+        <sys_package display_value="Scripting Fundamental Course" source="x_snc_scripting_fu">d21508159f2002107f4432d50124aba7</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Scripting Fundamental Course">d21508159f2002107f4432d50124aba7</sys_scope>
+        <sys_update_name>sys_script_include_81b9290f9f2002107f4432d50124abec</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-28 17:37:41</sys_updated_on>
+    </sys_script_include>
+</record_update>

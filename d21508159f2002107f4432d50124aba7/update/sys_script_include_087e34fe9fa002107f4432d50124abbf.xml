@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_scripting_fu.hasRoleExactly</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Lab 7.1A hasRoleExactly server-side logging</description>
+        <name>hasRoleExactly</name>
+        <script><![CDATA[function hasRoleExactly(userSysID, roleStr) {
+    /**
+ 
+	* Description: 
+
+	* Parameters: 
+
+	* Returns:
+	*/
+    try {
+        var roleGr = new GlideRecord("sys_user_role");
+        if (roleGr.get('name', roleStr)) {
+
+            var role = roleGr.getValue('sys_id');
+            var gr = new GlideRecord("sys_user_role");
+            gr.addQuery("sys_id", userSysID);
+            gr.addQuery("role", role);
+            gr.query();
+            if (gr.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    } catch (err) {
+        gs.error("Error in Script Include hasRoleExactly: " + err);
+    }
+
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-27 18:57:00</sys_created_on>
+        <sys_id>087e34fe9fa002107f4432d50124abbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hasRoleExactly</sys_name>
+        <sys_package display_value="Scripting Fundamental Course" source="x_snc_scripting_fu">d21508159f2002107f4432d50124aba7</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Scripting Fundamental Course">d21508159f2002107f4432d50124aba7</sys_scope>
+        <sys_update_name>sys_script_include_087e34fe9fa002107f4432d50124abbf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-27 18:57:00</sys_updated_on>
+    </sys_script_include>
+</record_update>
